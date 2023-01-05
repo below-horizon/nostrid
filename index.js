@@ -1,26 +1,26 @@
-const express = require('express')
-const names = require('./nostr.json')
-const app = express()
+const express = require('express');
+const names = require('./nostr.json');
+const app = express();
 
-const PORT = 3001
+const PORT = 3001;
 
-app.use(express.json())
+app.use(express.json());
 
 const getUser = async (qname) => {
-  let rname = null
-  names.names.forEach(name => {
+  let rname = null;
+  names.names.forEach((name) => {
     if (Object.keys(name)[0] === qname) {
-      rname = name
+      rname = name;
     }
-  })
-  return rname
-}
+  });
+  return rname;
+};
 
 // /.well-known/nostr.json?name=<user>
 app.get('/.well-known/nostr.json', async (req, res) => {
-  const rname = await getUser(req.query.name)
-  rname != null ? res.json({"names": rname}) : res.sendStatus(404)
-})
+  const rname = await getUser(req.query.name);
+  rname != null ? res.json({ names: rname }) : res.sendStatus(404);
+});
 
 app.listen(PORT, () => {
   console.log(`server started at port ${PORT}`);
