@@ -1,4 +1,5 @@
 # nostrid
+Serves single or multiple NIP-05 id's from own domain.
 
 ## Prerequisite
 
