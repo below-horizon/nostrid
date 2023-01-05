@@ -29,3 +29,25 @@ location /.well-known/nostr.json {
   proxy_pass http://127.0.0.1:3001;
 }
 ```
+
+## Systemd service example
+```
+# /etc/systemd/system/nostrid.service
+
+[Unit]
+Description=nostrid
+After=network.target
+
+[Service]
+WorkingDirectory=/home/USER/nostrid
+ExecStart=/usr/bin/npm run start
+User=USER
+Restart=always
+TimeoutSec=120
+RestartSec=30
+StandardOutput=null
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
+```
