@@ -5,11 +5,11 @@
 - Nodejs
 
 ## Installation
-'''
+```
 git clone https://github.com/below-horizon/nostrid
 cd nostrid && npm install
 npm run start
-'''
+```
 ## Usage
 
 Runs default on port 3001.
@@ -21,11 +21,11 @@ You should be able to access to https://YOURDOMAIN.COM/.well-known/nostr.json?na
 ## Reverseproxy
 
 # Nginx
-'''
+```
 location /.well-known/nostr.json {
   add_header Access-Control-Allow-Origin *;
   add_header Content-Type application/json;
   proxy_set_header Host $http_host;
   proxy_pass http://127.0.0.1:3001;
 }
-'''
+```
