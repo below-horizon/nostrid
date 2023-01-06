@@ -3,6 +3,7 @@ Serves single or multiple NIP-05 id's from own domain.
 
 ## Prerequisite
 
+- Domain
 - Nodejs
 
 ## Installation
@@ -13,9 +14,11 @@ npm run start
 ```
 ## Usage
 
-Runs default on port 3001.
+Edit config.example file and input your own nostr id's and port.
 
-Inside nostr.json edit your own desired name and nostr pubkey.
+Example file has 4 id's, you can have as many or few as you like.
+
+Copy config.example to config.json.
 
 You should be able to access to https://YOURDOMAIN.COM/.well-known/nostr.json?name=USERNAME and get a [NIP-05](https://github.com/nostr-protocol/nips/blob/master/05.md) JSON response.
 
@@ -27,7 +30,7 @@ location /.well-known/nostr.json {
   add_header Access-Control-Allow-Origin *;
   add_header Content-Type application/json;
   proxy_set_header Host $http_host;
-  proxy_pass http://127.0.0.1:3001;
+  proxy_pass http://127.0.0.1:<PORT-FROM-CONFIG>;
 }
 ```
 
@@ -40,9 +43,9 @@ Description=nostrid
 After=network.target
 
 [Service]
-WorkingDirectory=/home/USER/nostrid
+WorkingDirectory=/home/<USER>/nostrid
 ExecStart=/usr/bin/npm run start
-User=USER
+User=<USER>
 Restart=always
 TimeoutSec=120
 RestartSec=30
