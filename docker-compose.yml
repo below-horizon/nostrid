@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  nostrid:
+    container_name: nostrid
+    build: ./
+    working_dir: /app
+    restart: always
+    ports:
+      - '3001:3001'

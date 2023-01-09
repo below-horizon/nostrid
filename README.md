@@ -18,9 +18,17 @@ Edit config.example file and input your own nostr id's and port.
 
 Example file has 4 id's, you can have as many or few as you like.
 
-Copy config.example to config.json.
+Copy config.example.json to config.json.
 
 You should be able to access to `https://YOURDOMAIN.COM/.well-known/nostr.json?name=USERNAME` and get a [NIP-05](https://github.com/nostr-protocol/nips/blob/master/05.md) JSON response.
+
+## Docker
+```
+Edit config.json before running docker compose
+docker compose up -d
+OR
+docker-compose up -d
+```
 
 ## Reverse proxy
 
