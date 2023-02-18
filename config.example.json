@@ -2,9 +2,21 @@
   "port": 3001,
 
   "names": [
-    { "user1": "nostr_pubkey1" },
-    { "user2": "nostr_pubkey2" },
-    { "user3": "nostr_pubkey3" },
-    { "user4": "nostr_pubkey4" }
+    {
+      "name": "user1",
+      "pubkey": "nostr_pubkey1"
+    },
+    {
+      "name": "user2",
+      "pubkey": "nostr_pubkey2"
+    },
+    {
+      "name": "user3",
+      "pubkey": "nostr_pubkey3"
+    },
+    {
+      "name": "user4",
+      "pubkey": "nostr_pubkey4"
+    }
   ]
 }

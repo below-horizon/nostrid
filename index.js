@@ -6,9 +6,9 @@ app.use(express.json());
 
 const getUser = async (qname) => {
   let rname = null;
-  config.names.forEach((name) => {
-    if (Object.keys(name)[0] === qname) {
-      rname = name;
+  config.names.forEach((user) => {
+    if (user.name === qname) {
+      rname = user.name;
     }
   });
   return rname;
