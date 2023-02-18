@@ -4,20 +4,21 @@ const app = express();
 
 app.use(express.json());
 
-const getUser = async (qname) => {
-  let rname = null;
+const getUser = async (q) => {
+  let r = null;
   config.names.forEach((user) => {
-    if (user.name === qname) {
-      rname = user.name;
+    if (user.name === q) {
+      r = {};
+      r[user.name] = user.pubkey;
     }
   });
-  return rname;
+  return r;
 };
 
 // /.well-known/nostr.json?name=<user>
 app.get('/.well-known/nostr.json', async (req, res) => {
-  const rname = await getUser(req.query.name);
-  rname != null ? res.json({ names: rname }) : res.sendStatus(404);
+  const q = await getUser(req.query.name);
+  q != null ? res.json({ names: q }) : res.sendStatus(404);
 });
 
 app.listen(config.port, () => {
