@@ -4,19 +4,15 @@
   "names": [
     {
       "name": "user1",
-      "pubkey": "nostr_pubkey1"
+      "pubkey": "nostr_hexpubkey1"
     },
     {
       "name": "user2",
-      "pubkey": "nostr_pubkey2"
+      "pubkey": "nostr_hexpubkey2"
     },
     {
       "name": "user3",
-      "pubkey": "nostr_pubkey3"
-    },
-    {
-      "name": "user4",
-      "pubkey": "nostr_pubkey4"
+      "pubkey": "nostr_hexpubkey3"
     }
   ]
 }
